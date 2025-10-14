@@ -2,9 +2,7 @@ package ar.edu.unlu.poo.labo2.artefactos;
 
 import ar.edu.unlu.poo.labo2.artefactos.Artefacto;
 import ar.edu.unlu.poo.labo2.artefactos.CatalogoArtefactos;
-import ar.edu.unlu.poo.labo2.estrategias.EstrategiaDeMejora;
-import ar.edu.unlu.poo.labo2.estrategias.ForjadorDeRunas;
-import ar.edu.unlu.poo.labo2.estrategias.JoyeroElfico;
+import ar.edu.unlu.poo.labo2.estrategias.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -44,8 +42,8 @@ class CatalogoMejoradoTest {
 
     catalogo.aplicarMejoras();
 
-    assertEquals(65, varitaBasica.getNivelDePoder(), "La varita debería tener 15 puntos más de poder.");
-    assertEquals(40, amuletoDebil.getNivelDePoder(), "El amuleto no debería haber sido modificado por el forjador.");
+    assertEquals(65, varitaBasica.getNivelPoder(), "La varita debería tener 15 puntos más de poder.");
+    assertEquals(40, amuletoDebil.getNivelPoder(), "El amuleto no debería haber sido modificado por el forjador.");
   }
 
   @Test
@@ -58,8 +56,8 @@ class CatalogoMejoradoTest {
 
     catalogo.aplicarMejoras();
 
-    assertEquals(80, amuletoDebil.getNivelDePoder(), "El amuleto débil debería haber duplicado su poder.");
-    assertEquals(50, varitaBasica.getNivelDePoder(), "La varita no debería haber sido modificada por el joyero.");
+    assertEquals(80, amuletoDebil.getNivelPoder(), "El amuleto débil debería haber duplicado su poder.");
+    assertEquals(50, varitaBasica.getNivelPoder(), "La varita no debería haber sido modificada por el joyero.");
   }
 
   @Test
@@ -68,12 +66,12 @@ class CatalogoMejoradoTest {
     EstrategiaDeMejora estrategiaJoyería = new JoyeroElfico();
     CatalogoArtefactos catalogo = new CatalogoArtefactos(estrategiaJoyería);
     catalogo.agregarArtefacto(amuletoFuerte);
-    catalogo.agregarArtefacto(pergaminoInutil); // Se agrega para asegurar que no lo modifica.
+    catalogo.agregarArtefacto(pergaminoSimple); // Se agrega para asegurar que no lo modifica.
 
     catalogo.aplicarMejoras();
 
-    assertEquals(100, amuletoFuerte.getNivelDePoder(), "El amuleto fuerte debería tener un 25% más de poder.");
-    assertEquals(10, pergaminoInutil.getNivelDePoder(), "El pergamino no debería haber sido modificado por el joyero.");
+    assertEquals(100, amuletoFuerte.getNivelPoder(), "El amuleto fuerte debería tener un 25% más de poder.");
+    assertEquals(20, pergaminoSimple.getNivelPoder(), "El pergamino no debería haber sido modificado por el joyero.");
   }
 
   @Test
@@ -86,8 +84,8 @@ class CatalogoMejoradoTest {
 
     catalogo.aplicarMejoras();
 
-    assertEquals(45, pergaminoSimple.getNivelDePoder(), "El pergamino simple debería haber ganado 25 de poder.");
-    assertEquals(50, varitaBasica.getNivelDePoder(), "La varita no debe ser afectada por el escriba.");
+    assertEquals(45, pergaminoSimple.getNivelPoder(), "El pergamino simple debería haber ganado 25 de poder.");
+    assertEquals(50, varitaBasica.getNivelPoder(), "La varita no debe ser afectada por el escriba.");
   }
 
   @Test
@@ -99,7 +97,7 @@ class CatalogoMejoradoTest {
 
     catalogo.aplicarMejoras();
 
-    assertEquals(40, pergaminoComplejo.getNivelDePoder(), "El pergamino complejo debería haber perdido 10 de poder.");
+    assertEquals(40, pergaminoComplejo.getNivelPoder(), "El pergamino complejo debería haber perdido 10 de poder.");
   }
 
   @Test
@@ -112,8 +110,8 @@ class CatalogoMejoradoTest {
 
     catalogo.aplicarMejoras();
 
-    assertEquals(50, pocionCurativa.getNivelDePoder(), "La poción curativa debería haber ganado 20 de poder.");
-    assertEquals(40, amuletoDebil.getNivelDePoder(), "El amuleto no debe ser afectado por el alquimista.");
+    assertEquals(50, pocionCurativa.getNivelPoder(), "La poción curativa debería haber ganado 20 de poder.");
+    assertEquals(40, amuletoDebil.getNivelPoder(), "El amuleto no debe ser afectado por el alquimista.");
   }
 
   @Test
@@ -125,7 +123,7 @@ class CatalogoMejoradoTest {
 
     catalogo.aplicarMejoras();
 
-    assertEquals(100, pocionPoderosa.getNivelDePoder(), "La poción poderosa debería haber alcanzado el límite de 100, no 105.");
+    assertEquals(100, pocionPoderosa.getNivelPoder(), "La poción poderosa debería haber alcanzado el límite de 100, no 105.");
   }
 
   @Test
@@ -140,9 +138,9 @@ class CatalogoMejoradoTest {
 
     catalogo.aplicarMejoras();
 
-    assertEquals(65, varitaBasica.getNivelDePoder(), "La primera varita debería tener +15 de poder.");
-    assertEquals(85, otraVarita.getNivelDePoder(), "La segunda varita también debería tener +15 de poder.");
-    assertEquals(80, amuletoFuerte.getNivelDePoder(), "El amuleto no debería haber cambiado.");
+    assertEquals(65, varitaBasica.getNivelPoder(), "La primera varita debería tener +15 de poder.");
+    assertEquals(85, otraVarita.getNivelPoder(), "La segunda varita también debería tener +15 de poder.");
+    assertEquals(80, amuletoFuerte.getNivelPoder(), "El amuleto no debería haber cambiado.");
   }
 
   @Test

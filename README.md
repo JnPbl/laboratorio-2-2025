@@ -8,8 +8,8 @@
 
 # Grupo
 
-- Estudiante 1 (Legajo 1) - cor...@estudiante1.com
-- Estudiante 2 (Legajo 2) - cor...@estudiante2.com
+- Carolina Wieczerynski (195270) - cor...@estudiante1.com
+- Pothoven Juan Pablo (165020) - cor...@estudiante2.com
 
 # Contexto / Escenario
 
